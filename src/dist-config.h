@@ -2,3 +2,4 @@
 // This template has been provided in place of the actual configuration file containing credential infomration.  You will need to rename this file to config.h (or change the include contained in the appropriate *.ino files).
 
 // Particle Cloud API Credentials
+String particle_api_key = "<Insert Your Key Here>";
