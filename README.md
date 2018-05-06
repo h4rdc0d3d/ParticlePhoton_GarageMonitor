@@ -8,14 +8,14 @@ As a parent of three driving teenagers, I often find my garage doors left open t
 
 ## The Solution
 - MVP1: Use one of my many Particle Photons to monitor the status of all three garage doors and notify me via SMS or email if they are left open for a specified time (i.e. 5-10 minutes) during late-night hours (i.e. 11PM-6:30AM).
- - Execute after a scheduled interval (every minute)
- - Check each Garage Door status (via reed switches) to see if they are open or closed
- - Turn LED light ON when door is OPEN and OFF when door is CLOSED
- - If OPEN and LATE-NIGHT, start counter and increment each run
-  - Once counter reaches Alert Threshold, send notifications
+  - Execute after a scheduled interval (every minute)
+  - Check each Garage Door status (via reed switches) to see if they are open or closed
+  - Turn LED light ON when door is OPEN and OFF when door is CLOSED
+  - If OPEN and LATE-NIGHT, start counter and increment each run
+    - Once counter reaches Alert Threshold, send notifications
 - MVP2: Use Cloud functions
- - Check door status
- - Turn lights on/OFF
- - Mobile integration to Cloud functions
+  - Check door status
+  - Turn lights ON/OFF
+  - Mobile integration to Cloud functions
 - MVP3: Siri integration to Cloud functions
 - MVP4: Open/Close garage doors thru hard-wire connection (via Photon Relay-Shield)
