@@ -38,9 +38,9 @@ void setup() {
   pinMode(door3_pin, INPUT_PULLUP);
 
   // Define Cloud variables
-  Particle.variable("D1_Status", sd1);
-  Particle.variable("D2_Status", sd2);
-  Particle.variable("D3_Status", sd3);
+  Particle.variable("DOOR_LEFT", sd1);
+  Particle.variable("DOOR_MIDDLE", sd2);
+  Particle.variable("DOOR_RIGHT", sd3);
 
   // Define Cloud Functions
   Particle.function("triggerDoor", triggerDoor);
@@ -66,7 +66,7 @@ void loop() {
       sd1 = "UNKNOWN";
     }
 
-    Particle.publish("DOOR 1", sd1);
+    Particle.publish("DOOR_LEFT", sd1, PRIVATE);
     door1_status = door1_current;
   }
 
@@ -82,7 +82,7 @@ void loop() {
       sd2 = "UNKNOWN";
     }
 
-    Particle.publish("DOOR 2", sd2);
+    Particle.publish("DOOR_MIDDLE", sd2, PRIVATE);
     door2_status = door2_current;
   }
 
@@ -98,7 +98,7 @@ void loop() {
       sd3 = "UNKNOWN";
     }
 
-    Particle.publish("DOOR 3", sd3);
+    Particle.publish("DOOR_RIGHT", sd3, PRIVATE);
     door3_status = door3_current;
   }
 
@@ -132,11 +132,11 @@ int triggerDoor(String doorNum) {
     delay(500);
     relayOff(doorNum);
 
-    Particle.publish("DOOR TRIGGERED", doorNum);
+    Particle.publish("DOOR TRIGGERED", doorNum, PRIVATE);
     return 1;
   }
   else {
-    Particle.publish("ERROR", "INVALID DOOR: " + doorNum);
+    Particle.publish("ERROR", "INVALID DOOR: " + doorNum, PRIVATE);
     return 0;
   }
 }
